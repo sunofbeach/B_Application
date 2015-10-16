@@ -42,6 +42,7 @@
             this.cmdRemove = new System.Windows.Forms.Button();
             this.cmdTrans = new System.Windows.Forms.Button();
             this.cmdView = new System.Windows.Forms.Button();
+<<<<<<< HEAD
             this.dgView = new System.Windows.Forms.DataGridView();
             this.exitBtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -56,6 +57,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
+=======
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -65,7 +70,11 @@
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+<<<<<<< HEAD
             this.dataGridView1.Location = new System.Drawing.Point(163, 38);
+=======
+            this.dataGridView1.Location = new System.Drawing.Point(163, 14);
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -81,9 +90,15 @@
             this.label1.Location = new System.Drawing.Point(17, 15);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
+<<<<<<< HEAD
             this.label1.Size = new System.Drawing.Size(143, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "Account(1 to 100)";
+=======
+            this.label1.Size = new System.Drawing.Size(71, 15);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Account#";
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
             // 
             // label2
             // 
@@ -109,7 +124,10 @@
             // 
             this.txtAcct.Location = new System.Drawing.Point(21, 33);
             this.txtAcct.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+<<<<<<< HEAD
             this.txtAcct.MaxLength = 3;
+=======
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
             this.txtAcct.Name = "txtAcct";
             this.txtAcct.Size = new System.Drawing.Size(132, 25);
             this.txtAcct.TabIndex = 4;
@@ -118,7 +136,10 @@
             // 
             this.txtClient.Location = new System.Drawing.Point(21, 78);
             this.txtClient.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+<<<<<<< HEAD
             this.txtClient.MaxLength = 20;
+=======
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
             this.txtClient.Name = "txtClient";
             this.txtClient.Size = new System.Drawing.Size(132, 25);
             this.txtClient.TabIndex = 5;
@@ -127,14 +148,21 @@
             // 
             this.txtBalance.Location = new System.Drawing.Point(21, 123);
             this.txtBalance.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+<<<<<<< HEAD
             this.txtBalance.MaxLength = 15;
+=======
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
             this.txtBalance.Name = "txtBalance";
             this.txtBalance.Size = new System.Drawing.Size(132, 25);
             this.txtBalance.TabIndex = 6;
             // 
             // cmdAdd
             // 
+<<<<<<< HEAD
             this.cmdAdd.Location = new System.Drawing.Point(20, 168);
+=======
+            this.cmdAdd.Location = new System.Drawing.Point(21, 155);
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
             this.cmdAdd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cmdAdd.Name = "cmdAdd";
             this.cmdAdd.Size = new System.Drawing.Size(133, 27);
@@ -146,7 +174,11 @@
             // cmdUpdate
             // 
             this.cmdUpdate.Enabled = false;
+<<<<<<< HEAD
             this.cmdUpdate.Location = new System.Drawing.Point(20, 213);
+=======
+            this.cmdUpdate.Location = new System.Drawing.Point(21, 189);
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
             this.cmdUpdate.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cmdUpdate.Name = "cmdUpdate";
             this.cmdUpdate.Size = new System.Drawing.Size(133, 27);
@@ -158,7 +190,11 @@
             // cmdRemove
             // 
             this.cmdRemove.Enabled = false;
+<<<<<<< HEAD
             this.cmdRemove.Location = new System.Drawing.Point(20, 255);
+=======
+            this.cmdRemove.Location = new System.Drawing.Point(21, 224);
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
             this.cmdRemove.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cmdRemove.Name = "cmdRemove";
             this.cmdRemove.Size = new System.Drawing.Size(133, 27);
@@ -170,7 +206,11 @@
             // cmdTrans
             // 
             this.cmdTrans.Enabled = false;
+<<<<<<< HEAD
             this.cmdTrans.Location = new System.Drawing.Point(163, 291);
+=======
+            this.cmdTrans.Location = new System.Drawing.Point(163, 223);
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
             this.cmdTrans.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cmdTrans.Name = "cmdTrans";
             this.cmdTrans.Size = new System.Drawing.Size(208, 27);
@@ -182,7 +222,11 @@
             // cmdView
             // 
             this.cmdView.Enabled = false;
+<<<<<<< HEAD
             this.cmdView.Location = new System.Drawing.Point(381, 291);
+=======
+            this.cmdView.Location = new System.Drawing.Point(379, 223);
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
             this.cmdView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cmdView.Name = "cmdView";
             this.cmdView.Size = new System.Drawing.Size(189, 27);
@@ -191,6 +235,7 @@
             this.cmdView.UseVisualStyleBackColor = true;
             this.cmdView.Click += new System.EventHandler(this.cmdView_Click);
             // 
+<<<<<<< HEAD
             // dgView
             // 
             this.dgView.AllowUserToAddRows = false;
@@ -298,10 +343,13 @@
             this.label12.TabIndex = 22;
             this.label12.Text = "Actual Data in DataSet";
             // 
+=======
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(1000, 370);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -314,6 +362,9 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.dgView);
+=======
+            this.ClientSize = new System.Drawing.Size(585, 262);
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
             this.Controls.Add(this.cmdView);
             this.Controls.Add(this.cmdTrans);
             this.Controls.Add(this.cmdRemove);
@@ -332,7 +383,10 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+<<<<<<< HEAD
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).EndInit();
+=======
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,6 +407,7 @@
         private System.Windows.Forms.Button cmdRemove;
         private System.Windows.Forms.Button cmdTrans;
         private System.Windows.Forms.Button cmdView;
+<<<<<<< HEAD
         private System.Windows.Forms.DataGridView dgView;
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.Label label4;
@@ -364,6 +419,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+=======
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
     }
 }
 

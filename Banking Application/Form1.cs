@@ -22,6 +22,7 @@ namespace Banking_Application
     {
         private enum ControlState { None_Mode, Add_Mode, UpdateRemove_Mode, Transaction_Mode, View_Mode }
         private SqlConnection mConn = null;
+<<<<<<< HEAD
         private string mOrigAcct = "";
         private double mOrigBal = 0d;
         private const string mDatabaseName = "Bank.mdf";
@@ -29,6 +30,12 @@ namespace Banking_Application
         private SqlDataAdapter mDA = null;
         private DataSet mDS = null;
         private int mRowIndex = -1;
+=======
+        private SqlCommand mCmd = null;
+        private string origAcct = "";
+        private double origBal = 0d;
+        private const string mDatabaseName = "Bank.mdf";
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
         private string _mConnStr = null;
         private string mConnStr
         {
@@ -60,6 +67,7 @@ namespace Banking_Application
             txtBalance.ContextMenu = new System.Windows.Forms.ContextMenu();
 
             //Assigning keypress event handlers
+<<<<<<< HEAD
             getData();
             dataGridView1.Click += dataGridView1_Click;
             txtAcct.KeyPress += txtAcct_KeyPress;
@@ -71,6 +79,15 @@ namespace Banking_Application
             dataGridView1.Columns["Balance"].DefaultCellStyle.Format = "c";
             dataGridView1.Columns["Balance"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.KeyDown += dataGridView1_KeyDown;
+=======
+            dataGridView1.Click += dataGridView1_Click;
+            getData();
+            txtAcct.KeyPress += txtAcct_KeyPress;
+            txtClient.KeyPress += txtClient_KeyPress;
+            txtBalance.KeyPress += txtBalance_KeyPress;
+            dataGridView1.KeyDown += dataGridView1_KeyDown;
+
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
             dataGridView1.ClearSelection();
         }
         void dataGridView1_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
@@ -89,16 +106,24 @@ namespace Banking_Application
         void txtAcct_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Only Allow Numbers to be Entered, and set minimum length(not decided yet)
+<<<<<<< HEAD
             char c = e.KeyChar;
+=======
+            int c = e.KeyChar;
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
             int len = ((TextBox)sender).Text.Length;
             ((TextBox)sender).SelectionStart = len;
             if (c != 8)
             {
+<<<<<<< HEAD
                 if (len == 0 && (c < 49 || c > 57))
                 {
                     e.Handled = true;
                 }
                 else if (len > 0 && (c < 48 || c > 57))
+=======
+                if (c < 48 || c > 57)
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
                 {
                     e.Handled = true;
                 }
@@ -106,6 +131,7 @@ namespace Banking_Application
         }
         void txtClient_KeyPress(object sender, KeyPressEventArgs e)
         {
+<<<<<<< HEAD
             char c = e.KeyChar;
             int len = ((TextBox)sender).Text.Length;
             ((TextBox)sender).SelectionStart = len;
@@ -163,11 +189,19 @@ namespace Banking_Application
 
                 }
             }
+=======
+
+        }
+        void txtBalance_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
         }
         void dataGridView1_Click(object sender, EventArgs e)
         {
             if (cmdAdd.Text.Equals("Add Account"))
             {
+<<<<<<< HEAD
                 mRowIndex = dataGridView1.CurrentRow.Index;
 
                 for (int i = 0; i < mDS.Tables[mTableName].Rows.Count; i++)
@@ -184,21 +218,32 @@ namespace Banking_Application
                         }
                     }
                 }
+=======
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
                 dataGridView1.CurrentRow.Selected = true;
                 txtAcct.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                 txtClient.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
                 txtBalance.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+<<<<<<< HEAD
                 mOrigAcct = txtAcct.Text;
+=======
+                origAcct = txtAcct.Text;
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
                 setControlState(ControlState.UpdateRemove_Mode);
             }
         }
 
         private void getData()
         {
+<<<<<<< HEAD
+=======
+
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
             try
             {
                 mConn = new SqlConnection(mConnStr);
                 mConn.Open();
+<<<<<<< HEAD
                 string sql = "select * from [" + mTableName + "]";
                 mDA = new SqlDataAdapter(sql, mConn);
                 SqlCommandBuilder cb = new SqlCommandBuilder(mDA);
@@ -215,6 +260,58 @@ namespace Banking_Application
                 myView.RowStateFilter = DataViewRowState.CurrentRows | DataViewRowState.Deleted;
                 dgView.DataSource = myView;
                 dgView.ClearSelection();
+=======
+                mCmd = new SqlCommand();
+                mCmd.Connection = mConn;
+                mCmd.CommandText = "SELECT * FROM [tAccounts] ORDER BY [Account#] ASC";
+                SqlDataReader dr = mCmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    //bind and display
+                    bindingSource1.DataSource = dr;
+                    dataGridView1.DataSource = bindingSource1;
+                    dataGridView1.ClearSelection();
+
+                    //Auto resize column widths
+                    dataGridView1.AutoResizeColumns();
+                }
+                dr.Close();
+                mConn.Close();
+            }
+            catch (SqlException ex)
+            {
+                if (mConn != null)
+                {
+                    mConn.Close();
+                }
+                MessageBox.Show(ex.Message, "Error Reading Data.");
+            }
+        }
+        private void getTData()
+        {
+            try
+            {
+                mConn = new SqlConnection(mConnStr);
+                mConn.Open();
+                mCmd = new SqlCommand();
+                mCmd.Connection = mConn;
+                mCmd.CommandText = "SELECT * FROM [tAccounts] WHERE [Account#] = '" + txtAcct.Text + "' ORDER BY [Account#] ASC";
+                SqlDataReader dr = mCmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    //bind and display
+                    bindingSource1.DataSource = dr;
+                    dataGridView1.DataSource = bindingSource1;
+                    dataGridView1.ClearSelection();
+
+                    //Auto resize column widths
+                    dataGridView1.AutoResizeColumns();
+                }
+                dr.Close();
+                mConn.Close();
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
             }
             catch (SqlException ex)
             {
@@ -238,6 +335,7 @@ namespace Banking_Application
             {
                 try
                 {
+<<<<<<< HEAD
                     DataRow dr = mDS.Tables[mTableName].NewRow();
                     dr["Account#"] = Convert.ToInt32(txtAcct.Text);
                     dr["Client"] = txtClient.Text;
@@ -247,6 +345,19 @@ namespace Banking_Application
                     clearText();
                     formatGrid();
 
+=======
+                    string sql = "INSERT INTO [tAccounts] ([Account#],[Client],[Balance],[Last Transaction]) VALUES ('" + txtAcct.Text + "','" + txtClient.Text + "','" + txtBalance.Text + "','" + DateTime.Now + "')";
+                    if (mConn.State != ConnectionState.Open)
+                    {
+                        mConn.Open();
+                    }
+                    mCmd = new SqlCommand(sql, mConn);
+                    mCmd.ExecuteNonQuery();
+                    MessageBox.Show("Account " + txtAcct.Text + " successfully created for " + txtClient.Text, "Account Added Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    getData();
+                    clearText();
+                    mConn.Close();
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
                 }
                 catch (SqlException ex)
                 {
@@ -262,6 +373,7 @@ namespace Banking_Application
         {
             if (cmdUpdate.Text.Equals("Withdraw"))
             {
+<<<<<<< HEAD
                 try
                 {
                     DataRow dr = mDS.Tables[mTableName].Rows[mRowIndex];
@@ -270,6 +382,16 @@ namespace Banking_Application
                     dr["Balance"] = mOrigBal - Convert.ToDouble(txtBalance.Text);
                     dr["Last Transaction"] = DateTime.Now;
                     formatGrid();
+=======
+                string sql = "UPDATE [tAccounts] SET [Balance] = '" + (origBal - Convert.ToDouble(txtBalance.Text)) + "', [Last Transaction] = '" + DateTime.Now + "' WHERE [Account#] = '" + txtAcct.Text + "'";
+                try
+                {
+                    mConn.Open();
+                    mCmd.CommandText = sql;
+                    mCmd.ExecuteNonQuery();
+                    mConn.Close();
+                    getTData();
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
                 }
                 catch (SqlException ex)
                 {
@@ -282,6 +404,7 @@ namespace Banking_Application
             }
             else
             {
+<<<<<<< HEAD
                 try
                 {
                     DataRow dr = mDS.Tables[mTableName].Rows[mRowIndex];
@@ -289,6 +412,16 @@ namespace Banking_Application
                     dr["Client"] = txtClient.Text;
                     dr["Balance"] = Convert.ToDouble(txtBalance.Text);
                     formatGrid();
+=======
+                string sql = "UPDATE [tAccounts] SET [Account#] = '" + txtAcct.Text + "', [Client] = '" + txtClient.Text + "', [Balance] = '" + txtBalance.Text + "' WHERE [Account#] = '" + origAcct + "'";
+                try
+                {
+                    mConn.Open();
+                    mCmd.CommandText = sql;
+                    mCmd.ExecuteNonQuery();
+                    mConn.Close();
+                    getData();
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
                 }
                 catch (SqlException ex)
                 {
@@ -305,21 +438,36 @@ namespace Banking_Application
         {
             if (cmdRemove.Text.Equals("Deposit"))
             {
+<<<<<<< HEAD
                 DataRow dr = mDS.Tables[mTableName].Rows[mRowIndex];
                 dr["Account#"] = Convert.ToInt32(txtAcct.Text);
                 dr["Client"] = txtClient.Text;
                 dr["Balance"] = mOrigBal + Convert.ToDouble(txtBalance.Text);
                 dr["Last Transaction"] = DateTime.Now;
                 formatGrid();
+=======
+
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
             }
             else
             {
                 if (MessageBox.Show("Are you sure you want to remove this account?", "Confirm Record Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == System.Windows.Forms.DialogResult.Yes)
                 {
+<<<<<<< HEAD
                     try
                     {
                         mDS.Tables[mTableName].Rows[mRowIndex].Delete();
                         formatGrid();
+=======
+                    string sql = "DELETE FROM [tAccounts] WHERE [Account#] = '" + origAcct + "'";
+                    try
+                    {
+                        mConn.Open();
+                        mCmd.CommandText = sql;
+                        mCmd.ExecuteNonQuery();
+                        mConn.Close();
+                        getData();
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
                     }
                     catch (SqlException ex)
                     {
@@ -349,6 +497,7 @@ namespace Banking_Application
             txtAcct.Focus();
             dataGridView1.ClearSelection();
         }
+<<<<<<< HEAD
         private bool isValidAcct(bool isAdd = true)
         {
             if (isAdd)
@@ -378,6 +527,10 @@ namespace Banking_Application
                     }
                 }
             }
+=======
+        private bool isValidAcct()
+        {
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
             return true;
         }
         private bool fieldsNotEmpty()
@@ -397,6 +550,7 @@ namespace Banking_Application
         {
             switch (state)
             {
+<<<<<<< HEAD
                 case ControlState.Add_Mode: ModeMethod_Add(); break;
                 case ControlState.UpdateRemove_Mode: ModeMethod_UpdateRemove(); break;
                 case ControlState.Transaction_Mode: ModeMethod_Transaction(); break;
@@ -500,6 +654,59 @@ namespace Banking_Application
                 MessageBox.Show(ex.Message, "Error Updating Database");
             }
 
+=======
+                case ControlState.Add_Mode:
+                    clearText();
+                    cmdAdd.Text = "Add Account";
+                    cmdUpdate.Text = "Update Account";
+                    cmdRemove.Text = "Remove Account";
+                    cmdView.Text = "View Transactions";
+                    cmdUpdate.Enabled = false;
+                    cmdRemove.Enabled = false;
+                    cmdTrans.Enabled = false;
+                    cmdView.Enabled = false;
+                    txtBalance.Enabled = true;
+                    txtAcct.Enabled = true;
+                    dataGridView1.ClearSelection();
+                    getData();
+                    break;
+                case ControlState.UpdateRemove_Mode:
+                    cmdAdd.Text = "Return to Add Mode";
+                    cmdUpdate.Enabled = true;
+                    cmdRemove.Enabled = true;
+                    cmdTrans.Enabled = true;
+                    cmdView.Enabled = true;
+                    txtAcct.Enabled = true;
+                    txtClient.Enabled = true;
+                    txtBalance.Enabled = false;
+                    break;
+                case ControlState.Transaction_Mode:
+                    cmdAdd.Text = "Return to Add Mode";
+                    cmdUpdate.Text = "Withdraw";
+                    cmdRemove.Text = "Deposit";
+                    txtAcct.Enabled = false;
+                    txtBalance.Enabled = true;
+                    origBal = Convert.ToDouble(txtBalance.Text);
+                    txtBalance.Text = "";
+                    cmdTrans.Enabled = false;
+                    cmdView.Enabled = true;
+                    getTData();
+                    break;
+                case ControlState.View_Mode:
+                    clearText();
+                    txtAcct.Enabled = false;
+                    txtClient.Enabled = false;
+                    txtBalance.Enabled = false;
+                    cmdUpdate.Enabled = false;
+                    cmdRemove.Enabled = false;
+                    cmdTrans.Enabled = true;
+                    cmdView.Enabled = false;
+                    break;
+                case ControlState.None_Mode:
+                default:
+                    break;
+            }
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
         }
     }
 }

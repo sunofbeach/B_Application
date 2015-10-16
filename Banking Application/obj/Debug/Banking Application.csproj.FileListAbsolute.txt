@@ -20,6 +20,7 @@ E:\Sheridan Coder Res\Term 4\cSharp\Project Versions\0.8\Banking Application\Ban
 E:\Sheridan Coder Res\Term 4\cSharp\Project Versions\0.8\Banking Application\Banking Application\obj\Debug\Banking_Application.Form1.resources
 E:\Sheridan Coder Res\Term 4\cSharp\Project Versions\0.8\Banking Application\Banking Application\obj\Debug\Banking_Application.Properties.Resources.resources
 E:\Sheridan Coder Res\Term 4\cSharp\Project Versions\0.8\Banking Application\Banking Application\obj\Debug\Banking Application.csproj.GenerateResource.Cache
+<<<<<<< HEAD
 E:\SVN_Project\B_Application.git\B_Application\Banking Application\bin\Debug\Banking Application.exe.config
 E:\SVN_Project\B_Application.git\B_Application\Banking Application\obj\Debug\Banking Application.exe
 E:\SVN_Project\B_Application.git\B_Application\Banking Application\obj\Debug\Banking Application.pdb
@@ -31,3 +32,5 @@ E:\SVN_Project\B_Application.git\B_Application\Banking Application\obj\Debug\Ban
 E:\SVN_Project\B_Application.git\B_Application\Banking Application\obj\Debug\Banking_Application.Form1.resources
 E:\SVN_Project\B_Application.git\B_Application\Banking Application\obj\Debug\Banking_Application.Properties.Resources.resources
 E:\SVN_Project\B_Application.git\B_Application\Banking Application\obj\Debug\Banking Application.csproj.GenerateResource.Cache
+=======
+>>>>>>> ffd4384c2269d5a41f5e1854dc5418ff92aaec1d
